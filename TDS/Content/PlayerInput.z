@@ -3,7 +3,6 @@ class PlayerInput : ZilchComponent
 {
     [Property]
     var Speed : Real = 0.2;
-    var Speed2 : Real = -0.2;
     function Initialize(init : CogInitializer)
     
     {
@@ -31,6 +30,7 @@ class PlayerInput : ZilchComponent
             var temp2 = this.Owner.Transform.Translation;
             temp2.X +=this.Speed;
             this.Owner.Transform.Translation =  temp2;
+            this.Owner.Sprite.FlipX = false; 
             
         }
         
@@ -39,7 +39,7 @@ class PlayerInput : ZilchComponent
         {
             
             var temp3 = this.Owner.Transform.Translation;
-            temp3.Y +=this.Speed2;
+            temp3.Y -=this.Speed;
             this.Owner.Transform.Translation = temp3;
             
         }
@@ -50,9 +50,9 @@ class PlayerInput : ZilchComponent
             
            
             var temp4 = this.Owner.Transform.Translation;
-            temp4.X +=this.Speed2;
+            temp4.X -=this.Speed;
             this.Owner.Transform.Translation = temp4;
-            
+            this.Owner.Sprite.FlipX = true; 
         }
        
     }
